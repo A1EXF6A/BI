@@ -1,0 +1,4 @@
+from .collaborative import CollaborativeRecommender
+from .content_based import ContentBasedRecommender
+from .similarity import SimilarityRecommender
+from .inventory_similarity import InventorySimilarityRecommender

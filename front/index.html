@@ -75,10 +75,35 @@
 <section id="recommend" class="section hidden">
     <h2>Recomendaciones</h2>
 
-    <input type="text" id="productoInput" placeholder="Nombre del producto">
-    <button onclick="getRecommendations()">Recomendar</button>
+    <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+        <label for="recommendMethod">Método:</label>
+        <select id="recommendMethod">
+            <option value="collaborative">Filtrado colaborativo (clientes)</option>
+            <option value="inventory_similarity">Similitud (Inventario)</option>
+            <option value="content">Basado en contenido</option>
+            <option value="similarity">Similitud por ventas</option>
+        </select>
+        <label for="topN">Top</label>
+        <input id="topN" type="number" min="1" value="5" style="width:64px">
+    </div>
 
-    <ul id="recommendList"></ul>
+    <div style="display:flex; gap:12px; margin-bottom:8px;">
+        <div>
+            <label>ClienteKey (colaborativo)</label><br>
+            <input id="clienteInput" type="number" placeholder="ClienteKey">
+        </div>
+        <div>
+            <label>Producto (nombre o key)</label><br>
+            <input id="productoInput" type="text" placeholder="Nombre del producto o ProductoKey">
+        </div>
+        <div style="align-self:flex-end">
+            <button onclick="getRecommendations()">Recomendar</button>
+        </div>
+    </div>
+
+    <div id="recommendResults">
+        <ul id="recommendList"></ul>
+    </div>
 </section>
 
 <script src="js/api.js"></script>
