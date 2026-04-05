@@ -6,8 +6,8 @@ import pandas as pd
 class SimilarityRecommender:
 
     @staticmethod
-    def recommend(producto_nombre):
-        data = GeneralRepository.get_collection_data("FactVentas")
+    def recommend(producto_nombre, collection_name="FactVentas"):
+        data = GeneralRepository.get_collection_data(collection_name)
         df = build_dataframe(data)
 
         pivot = df.pivot_table(

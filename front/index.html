@@ -15,12 +15,29 @@
     <button onclick="showSection('recommend')">Recomendaciones</button>
 </nav>
 
+<!-- SELECTOR DE TABLAS -->
+<section id="tableSelector">
+    <h2>Selecciona una tabla de hechos</h2>
+    <select id="factTable">
+        <option value="FactVentas">Ventas</option>
+        <option value="FactAbastecimiento">Abastecimiento</option>
+        <option value="FactDistribucion">Distribución</option>
+        <option value="FactFabricacion">Fabricación</option>
+        <option value="FactInventario">Inventario</option>
+        <option value="FactVentasCombo">Ventas Combo</option>
+    </select>
+</section>
+
 <!-- METRICAS -->
 <section id="metrics" class="section">
     <h2>Métricas</h2>
     <button onclick="loadMetrics()">Cargar Métricas</button>
 
     <div id="metricsResult"></div>
+    <!-- Gráfico de métricas -->
+    <div style="width:600px; max-width:100%;">
+        <canvas id="metricsChart"></canvas>
+    </div>
 </section>
 
 <!-- CLUSTERS -->
@@ -53,6 +70,8 @@
 <script src="js/metrics.js"></script>
 <script src="js/clustering.js"></script>
 <script src="js/recommendation.js"></script>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="js/app.js"></script>
 
 </body>

@@ -6,15 +6,11 @@ from app.utils.dataframe_builder import build_dataframe
 class ClusteringService:
 
     @staticmethod
-    def cluster_productos(k=3):
-        data = GeneralRepository.get_collection_data("FactVentas")
+    def cluster_productos(k=3, collection_name="FactVentas"):
+        data = GeneralRepository.get_collection_data(collection_name)
         df = build_dataframe(data)
 
-        X = df[[
-            "CantidadVendida",
-            "PrecioFinal",
-            "MargenNeto"
-        ]]
+        X = df[["CantidadVendida", "PrecioFinal", "MargenNeto"]]
 
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(X)
@@ -22,7 +18,4 @@ class ClusteringService:
         model = KMeans(n_clusters=k, random_state=42)
         df["cluster"] = model.fit_predict(X_scaled)
 
-        return df[[
-            "Producto.NombreProducto",
-            "cluster"
-        ]].to_dict(orient="records")
+        return df[["Producto.NombreProducto", "cluster"]].to_dict(orient="records")
