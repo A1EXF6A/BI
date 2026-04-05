@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>BI Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<h1>📊 BI Dashboard</h1>
+
+<nav>
+    <button onclick="showSection('metrics')">Métricas</button>
+    <button onclick="showSection('clusters')">Clusters</button>
+    <button onclick="showSection('recommend')">Recomendaciones</button>
+</nav>
+
+<!-- METRICAS -->
+<section id="metrics" class="section">
+    <h2>Métricas</h2>
+    <button onclick="loadMetrics()">Cargar Métricas</button>
+
+    <div id="metricsResult"></div>
+</section>
+
+<!-- CLUSTERS -->
+<section id="clusters" class="section hidden">
+    <h2>Clusters</h2>
+    <button onclick="loadClusters()">Generar Clusters</button>
+
+    <table id="clustersTable">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cluster</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</section>
+
+<!-- RECOMENDACIONES -->
+<section id="recommend" class="section hidden">
+    <h2>Recomendaciones</h2>
+
+    <input type="text" id="productoInput" placeholder="Nombre del producto">
+    <button onclick="getRecommendations()">Recomendar</button>
+
+    <ul id="recommendList"></ul>
+</section>
+
+<script src="js/api.js"></script>
+<script src="js/metrics.js"></script>
+<script src="js/clustering.js"></script>
+<script src="js/recommendation.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
