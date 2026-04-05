@@ -10,15 +10,15 @@
 <h1>📊 BI Dashboard</h1>
 
 <nav>
-    <button onclick="showSection('metrics')">Métricas</button>
-    <button onclick="showSection('clusters')">Clusters</button>
-    <button onclick="showSection('recommend')">Recomendaciones</button>
+    <button onclick="showSection('metrics')">📊 Métricas</button>
+    <button onclick="showSection('clusters')">🔗 Clusters</button>
+    <button onclick="showSection('recommend')">💡 Recomendaciones</button>
 </nav>
 
 <!-- SELECTOR DE TABLAS -->
-<section id="tableSelector">
+<section id="tableSelector" style="text-align:center; margin-bottom:20px;">
     <h2>Selecciona una tabla de hechos</h2>
-    <select id="factTable">
+    <select id="factTable" style="padding:10px; font-size:1rem; border-radius:5px;">
         <option value="FactVentas">Ventas</option>
         <option value="FactAbastecimiento">Abastecimiento</option>
         <option value="FactDistribucion">Distribución</option>
@@ -49,18 +49,18 @@
         <button onclick="loadClusters()">Generar Clusters</button>
     </div>
 
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-        <div style="flex-basis:100%;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px;">
+        <div style="grid-column:1/-1;">
             <div id="clustersResult"></div>
         </div>
-        <div style="flex:1 1 60%; min-width:320px;">
+        <div>
             <div id="clustersLegend"></div>
             <div id="clustersResult" style="margin-top:8px"></div>
             <div style="width:100%; max-width:100%; margin-top:12px;">
                 <canvas id="clustersRadar" style="width:100%; height:360px;"></canvas>
             </div>
         </div>
-        <div style="flex:1 1 35%; min-width:320px;">
+        <div>
             <div style="width:100%; max-width:100%; margin-bottom:12px;">
                 <canvas id="clustersBarCompare" style="width:100%; height:240px;"></canvas>
             </div>
